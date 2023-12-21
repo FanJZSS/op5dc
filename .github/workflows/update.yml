@@ -18,5 +18,5 @@ jobs:
 
     - name: Run update script
       run: |
-        chmod +x update_submodules.sh
+        bash +x update_submodules.sh
         ./update_submodules.sh
