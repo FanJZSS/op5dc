@@ -1,17 +1,14 @@
 name: Update Submodules
-
 on:
-  workflow_dispatch:
-
+  workflow_dispatch:  # 手动触发
 jobs:
   update:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3.5.2
+    - name: Checkout Repository
+      uses: actions/checkout@v3.5.2
 
-      - name: Update Submodules
-        run: |
-          chmod +x update_submodules.sh
-          ./update_submodules.sh
+    - name: Run Update Script
+      run: |
+        chmod +x update_submodules.sh
+        ./update_submodules.sh
