@@ -1,0 +1,17 @@
+name: Update Submodules
+
+on:
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3.5.2
+
+      - name: Update Submodules
+        run: |
+          chmod +x update_submodules.sh
+          ./update_submodules.sh
