@@ -1,18 +1,22 @@
 name: Update Submodules
+
 on:
-  workflow_dispatch:  # 手动触发
+  workflow_dispatch:
+
 jobs:
-  update_submodules:
-    runs-on: ubuntu-20.04
+  update:
+    runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Repository
+    - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Change to Repository Root
-      run: cd $GITHUB_WORKSPACE
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
 
-    - name: Run update_submodules.sh
+    - name: Run update script
       run: |
         chmod +x update_submodules.sh
         ./update_submodules.sh
