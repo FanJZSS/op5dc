@@ -98,7 +98,7 @@ Patch_dc
 #Write flag
 test -f localversion || touch localversion
 cat >localversion <<EOF
-~DCdimming-for-Seshiria
+-0
 EOF
 #llvm dc build
 make -j"$(nproc --all)" O=out lineage_oneplus5_defconfig \
@@ -113,13 +113,13 @@ make -j"$(nproc --all)" O=out lineage_oneplus5_defconfig \
     CROSS_COMPILE_ARM32=arm-linux-androideabi- \
     CLANG_TRIPLE=aarch64-linux-gnu- \
     LLVM=1 &&
-    Releases "op5lin20-dc") || (echo "dc build error" && exit 1)
+    Releases "op5lin21-dc") || (echo "dc build error" && exit 1)
 
 ##kernelsu
 Patch_ksu
 test -f localversion || touch localversion
 cat >localversion <<EOF
-~DCdimming-ksu-for-Seshiria
+-1
 EOF
 make -j"$(nproc --all)" O=out lineage_oneplus5_defconfig \
     ARCH=arm64 \
@@ -134,4 +134,4 @@ make -j"$(nproc --all)" O=out lineage_oneplus5_defconfig \
     CLANG_TRIPLE=aarch64-linux-gnu- \
     LLVM=1 \
     import_KSU_GIT_VERSION="${KSU_GIT_VERSION}" &&
-    Releases "op5lin20-dc-ksu$KERNEL_SU_VERSION") || (echo "ksu build error" && exit 1)
+    Releases "op5lin21-dc-ksu$KERNEL_SU_VERSION") || (echo "ksu build error" && exit 1)
